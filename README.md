@@ -3,7 +3,7 @@ ArduinoEnergyLogger
 
 An arduino code that reads Current Transformer (CT sensor) data, SRNE Mppt controller data, and SNAT PSW inverter.
 The data collected will be transmit to a HTTP server via POST with a CSV formatted data.
-Device used in this project is Wemos D1 mini.
+The device used in this project is Wemos D1 mini.
 
 Please refer to the screenshots below.
 
