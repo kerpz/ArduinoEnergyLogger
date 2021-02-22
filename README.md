@@ -22,7 +22,7 @@ Supports
 
 Files
 -----
-* ESSMonitor_ESP8266.ino - main file
+* ArduinoEnergyLogger.ino - main file
 * ct.ino - support file for ct sensor reading (based on emon).
 * display.ino - support file for displaying data via LCD.
 * post.ino - support file for posting data to a HTTP server.
