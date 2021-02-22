@@ -51,11 +51,12 @@ Wiring for CT sensor, SRNE, and SNAT
 Screenshots (Device Webserver)
 ---------------
 
-![Alt text](https://raw.github.com/kerpz/ArduinoEnergyLogger/master/screenshots/Screenshot_20210218-212110_Chrome.jpg "Main Page")
-![Alt text](https://raw.github.com/kerpz/ArduinoEnergyLogger/master/screenshots/Screenshot_20210218-212210_Chrome "Information 1")
-![Alt text](https://raw.github.com/kerpz/ArduinoEnergyLogger/master/screenshots/Screenshot_20210218-212221_Chrome.jpg "Information 2")
-![Alt text](https://raw.github.com/kerpz/ArduinoEnergyLogger/master/screenshots/Screenshot_20210218-212327_Chrome.jpg "Configuration 1")
-![Alt text](https://raw.github.com/kerpz/ArduinoEnergyLogger/master/screenshots/Screenshot_20210218-212343_Chrome.jpg "Configuration 3")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/Screenshot_20210218-212110_Chrome.jpg "Main Page")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/Screenshot_20210218-212210_Chrome.jpg "Information 1")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/Screenshot_20210218-212221_Chrome.jpg "Information 2")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/Screenshot_20210218-212327_Chrome.jpg "Configuration 1")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/Screenshot_20210218-212343_Chrome.jpg "Configuration 3")
+
 
 NOTES
 -----
