@@ -52,17 +52,17 @@ Wiring for CT sensor, SRNE, and SNAT
 Screenshots (Grafana display)
 ---------------
 
-![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/grafana-1.png "Page 1")
-![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/grafana-2.png "Page 2")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/screenshots/grafana-1.png "Page 1")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/screenshots/grafana-2.png "Page 2")
 
 Screenshots (Device Webserver)
 ---------------
 
-![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/Screenshot_20210218-212110_Chrome.jpg "Main Page")
-![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/Screenshot_20210218-212210_Chrome.jpg "Information 1")
-![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/Screenshot_20210218-212221_Chrome.jpg "Information 2")
-![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/Screenshot_20210218-212327_Chrome.jpg "Configuration 1")
-![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/Screenshot_20210218-212343_Chrome.jpg "Configuration 3")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/screenshots/Screenshot_20210218-212110_Chrome.jpg "Main Page")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/screenshots/Screenshot_20210218-212210_Chrome.jpg "Information 1")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/screenshots/Screenshot_20210218-212221_Chrome.jpg "Information 2")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/screenshots/Screenshot_20210218-212327_Chrome.jpg "Configuration 1")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/screenshots/Screenshot_20210218-212343_Chrome.jpg "Configuration 3")
 
 
 NOTES
