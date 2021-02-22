@@ -48,6 +48,12 @@ Wiring for CT sensor, SRNE, and SNAT
     Tx ---------------------- D6
 
 
+Screenshots (Grafana display)
+---------------
+
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/grafana-1.png "Page 1")
+![Alt text](https://github.com/kerpz/ArduinoEnergyLogger/blob/main/ESSMonitor_ESP8266/screenshots/grafana-2.png "Page 2")
+
 Screenshots (Device Webserver)
 ---------------
 
@@ -60,6 +66,8 @@ Screenshots (Device Webserver)
 
 NOTES
 -----
+* Still in beta test
 
 TODO
 -----
+* Device mass production
