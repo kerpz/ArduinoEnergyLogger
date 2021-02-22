@@ -66,6 +66,8 @@ Screenshots (Device Webserver)
 
 NOTES
 -----
+* Still in beta test
 
 TODO
 -----
+* Device mass production
