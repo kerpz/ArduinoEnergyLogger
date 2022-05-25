@@ -166,8 +166,8 @@ void handleInfo() {
   body += F(" amps</td></tr><tr><td>CT Voltage</td><td>");
   body += String(ct_voltage);
   body += F(" volts</td></tr><tr><td>CT Power</td><td>");
-  body += String(ct_power);
-  body += F(" watts</td></tr><tr><td>CT Pf</td><td>");
+  body += String(ct_power / 1000.0, 3);
+  body += F(" kW</td></tr><tr><td>CT Pf</td><td>");
   body += String(ct_pf);
   body += F("</td></tr></tbody></table><br>");
 
@@ -224,6 +224,8 @@ void handleInfo() {
   body += String(http_error);
   body += F("</td></tr><tr><td>Http Code</td><td>");
   body += String(http_code);
+  body += F("</td></tr><tr><td>Run Time (minutes)</td><td>");
+  body += String(run_time);
   body += F("</td></tr></tbody></table><br><br>");
 
   body += F( "<a class=\"btn\" href=\"/reset\">Reset</a><br>" );
@@ -388,6 +390,8 @@ void handleReset() {
 
   modbus_error = 0;
   megatec_error = 0;
+
+  run_time = 0;
 
   webServer.sendHeader("Location", "/", true);
   webServer.sendHeader("Cache-Control", "no-cache, no-store, must-revalidate");

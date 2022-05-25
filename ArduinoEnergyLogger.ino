@@ -107,6 +107,8 @@ uint16_t post_error = 0;
 uint16_t http_error = 0;
 int http_code = 0;
 
+uint16_t run_time = 0;
+
 // timing
 uint8_t second = 0;
 //uint8_t minute;
@@ -222,6 +224,7 @@ void execEverySecond() {
       if (post_enable == 1) postCsv();
       else if (post_enable == 2) postInflux();
       second = 0;
+      run_time++;
     }
     else {
       second++;

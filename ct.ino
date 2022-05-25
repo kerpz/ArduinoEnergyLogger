@@ -24,7 +24,6 @@ void extractCT() {
     }
     double I_RATIO = ct_calibration * ((SupplyVoltage / 1000.0) / (ADC_COUNTS));
     ct_current = I_RATIO * sqrt(sumI / Number_of_Samples);
-    sumI = 0;
-    
+
     ct_power = (ct_current * ct_voltage * ct_pf); // watts / power apparent
 }
