@@ -24,14 +24,15 @@ Supports
 Files
 -----
 * ArduinoEnergyLogger.ino - main file
-* ct.ino - support file for ct sensor reading (based on emon).
-* display.ino - support file for displaying data via LCD.
-* post.ino - support file for posting data to a HTTP server.
-* srne.ino - support file for extracting data from a srne mppt controller.
-* snat.ino - support file for extracting data from a snat psw inverter.
-* webserver.ino - support file for the device webserver, used for wifi and device configurations/informations.
-* wifi.ino - support file for wifi.
-* utils.ino - helpers.
+* analog.h - support file for ct sensor reading (based on emon) [Edit cpp/h].
+* display.h - support file for displaying data via OLED [Edit cpp/h].
+* post.h - support file for posting data to a HTTP server IoT.
+* srne.h - support file for extracting data from a srne mppt controller.
+* snat.h - support file for extracting data from a snat psw inverter.
+* webserver.h - support file for the device webserver, used for wifi and device configurations/informations [Edit cpp/h].
+* utils.h - helpers.
+* hardware - directory of hardware design eagle files
+* screeshot - directory of images used for README
 
 
 Wiring for CT sensor, SRNE, and SNAT
