@@ -60,7 +60,7 @@ void networkSetup()
   }
 
   Serial.print("Starting MDNS (car.local) ... ");
-  Serial.println(MDNS.begin("car") ? "Success." : "Failed!");
+  Serial.println(MDNS.begin("ess") ? "Success." : "Failed!");
   MDNS.addService("http", "tcp", 80);
 }
 

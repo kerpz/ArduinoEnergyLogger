@@ -2,8 +2,11 @@
 #define APP_H
 
 #include "eeprom.h"
+#include "ntp.h"
 #include "analog.h"
+#include "display.h"
 #include "post.h"
+
 #include "srne.h"
 #include "snat.h"
 
