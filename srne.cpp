@@ -50,6 +50,9 @@ void srneSetup()
 
 void srneLoop()
 {
+  static float avg_pv_power = 0.00;
+  static float avg_dc_power = 0.00;
+
   uint8_t transmit[8] = {0}; // rtu
   uint8_t data[25] = {0};    // buffer
   int i = 0;
@@ -109,6 +112,12 @@ void srneLoop()
     if (mppt_power > 0)
       mppt_voltage = mppt_power / (word(data[7], data[8]) * 0.01);
     // load_switch = word(data[23], data[24]);
+
+    // moving average
+    pv_power = (avg_pv_power + pv_power) / 2;
+    avg_pv_power = pv_power;
+    dc_power = (avg_dc_power + dc_power) / 2;
+    avg_dc_power = dc_power;
   }
   else
   {

@@ -29,6 +29,7 @@ void analogSetup()
 
 void analogLoop()
 {
+  static float avg_power = 0.00;
   // setup for volt meter reading with 1.2M resistor
   // int raw = analogRead(A0);
   // a_voltage = raw / 1023.0;
@@ -50,4 +51,8 @@ void analogLoop()
   a_current = I_RATIO * sqrt(sumI / samples);
 
   a_power = (a_current * a_voltage * ct_pf); // watts / power apparent
+
+  // moving average
+  a_power = (avg_power + a_power) / 2;
+  avg_power = a_power;
 }

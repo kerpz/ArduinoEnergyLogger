@@ -30,7 +30,7 @@ void postData(const String &data)
         {
             http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
-            String postStr = "api_key=" + String(api_key) + "&" + data + "\n\n";
+            String postStr = "api_key=" + String(api_key) + data + "\n\n";
             int httpCode = http.POST(postStr);
 
             if (httpCode == HTTP_CODE_OK)
@@ -68,29 +68,61 @@ void postData(const String &data)
 
 void postLoop()
 {
-    String csv = "csv=";
-    csv += "" + String(a_voltage);
-    csv += "," + String(a_power);
+    String csv = "&csv=";
+    csv += "" + String(a_voltage, 2); // voltage
+    csv += ",0.00";                   // current
+    csv += "," + String(a_power, 2);  // power
+    csv += ",dc";                     // type
+    csv += ",0.00";                   // temperature
+    csv += ",0.00";                   // charge
 
-    csv += "," + String(pv_voltage);
-    csv += "," + String(pv_power);
-    csv += "," + String(battery_voltage);
-    csv += "," + String(battery_charge);
-    csv += "," + String(mppt_voltage);
-    csv += "," + String(mppt_power);
-    csv += "," + String(battery_temperature);
-    csv += "," + String(mppt_temperature);
-    csv += "," + String(dc_voltage);
-    csv += "," + String(dc_power);
+    // srne
+    csv += "," + String(pv_voltage, 2); // voltage
+    csv += ",0.00";                     // current
+    csv += "," + String(pv_power, 2);   // power
+    csv += ",dc";                       // type
+    csv += ",0.00";                     // temperature
+    csv += ",0.00";                     // charge
 
-    // csv += "," + String(inv_in_voltage);
-    // csv += "," + String(inv_in_fault_voltage);
-    // csv += "," + String(inv_out_voltage);
-    // csv += "," + String(inv_out_power); // watts
-    // csv += "," + String(inv_in_frequency);
-    // csv += "," + String(inv_cell_voltage);
-    // csv += "," + String(inv_temperature);
-    // csv += "," + String(inv_flags);
+    csv += "," + String(battery_voltage, 2);     // voltage
+    csv += ",0.00";                              // current
+    csv += ",0.00";                              // power
+    csv += ",dc";                                // type
+    csv += "," + String(battery_temperature, 2); // temperature
+    csv += "," + String(battery_charge, 2);      // charge
+
+    csv += "," + String(mppt_voltage, 2);     // voltage
+    csv += ",0.00";                           // current
+    csv += "," + String(mppt_power, 2);       // power
+    csv += ",dc";                             // type
+    csv += "," + String(mppt_temperature, 2); // temperature
+    csv += ",0.00";                           // charge
+
+    csv += "," + String(dc_voltage, 2); // voltage
+    csv += ",0.00";                     // current
+    csv += "," + String(dc_power, 2);   // power
+    csv += ",dc";                       // type
+    csv += ",0.00";                     // temperature
+    csv += ",0.00";                     // charge
+
+    // snat
+    csv += "," + String(inv_in_voltage, 2);   // input voltage
+    csv += ",0.00";                           // input current
+    csv += ",0.00";                           // input power
+    csv += ",ac";                             // type
+    csv += ",0.00";                           // input temperature
+    csv += "," + String(inv_in_frequency, 2); // input frequency
+
+    csv += "," + String(inv_out_voltage, 2); // output voltage
+    csv += ",0.00";                          // output current
+    csv += "," + String(inv_out_power, 2);   // output power
+    csv += ",ac";                            // type
+    csv += "," + String(inv_temperature, 2); // output temperature
+    csv += ",0.00";                          // output frequency
+
+    csv += "," + String(inv_cell_voltage, 2);     // cell voltage
+    csv += "," + String(inv_in_fault_voltage, 2); // in fault voltage
+    csv += "," + String(inv_flags);               // flags
 
     postData(csv);
 }

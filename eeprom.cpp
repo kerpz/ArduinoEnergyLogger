@@ -32,7 +32,7 @@ void loadConfig()
   EEPROM.begin(512);
 
   char ok[3];
-  EEPROM.get(361, ok);
+  EEPROM.get(386, ok);
 
   if (String(ok) == String("OK"))
   {
