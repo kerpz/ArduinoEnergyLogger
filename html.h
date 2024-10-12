@@ -543,7 +543,7 @@ const char index_html[] PROGMEM = R"rawliteral(
                 }
             }
             else {
-                window.location = '#/system';
+                window.location = '#/app';
             }
         });
         window.addEventListener("hashchange", (e) => {
