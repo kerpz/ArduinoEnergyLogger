@@ -50,13 +50,19 @@ void webserverSetup()
 
     String json;
     
+    char datetime[20];
+    time_t t_epoch = epoch + (timezone * 3600); // epoch +8GMT
+    struct tm *now = gmtime(&t_epoch);
+    strftime(datetime, sizeof(datetime), "%Y-%m-%d %H:%M:%S", now);
+
     json += "[";
     json += "{\"label\":\"System\",\"name\":\"expand_system\",\"value\":"+String(expand_system)+",\"elements\":[";
     json += "{\"type\":\"text\",\"label\":\"Chip ID\",\"name\":\"chip_id\",\"value\":\""+String(ESP.getChipId())+"\",\"attrib\":\"disabled\"},";
     json += "{\"type\":\"text\",\"label\":\"Free Heap\",\"name\":\"free_heap\",\"value\":\""+String(ESP.getFreeHeap())+"\",\"attrib\":\"disabled\"},";
     json += "{\"type\":\"text\",\"label\":\"Flash ID\",\"name\":\"flash_id\",\"value\":\""+String(ESP.getFlashChipId())+"\",\"attrib\":\"disabled\"},";
-    json += "{\"type\":\"text\",\"label\":\"Flash Size\",\"name\":\"flash_size\",\"value\":\""+String(ESP.getFlashChipSize())+"\",\"attrib\":\"disabled\"}";
+    json += "{\"type\":\"text\",\"label\":\"Flash Size\",\"name\":\"flash_size\",\"value\":\""+String(ESP.getFlashChipSize())+"\",\"attrib\":\"disabled\"},";
     //json += "{\"type\":\"text\",\"label\":\"Flash Real Size\",\"name\":\"flash_real_size\",\"value\":\""+String(ESP.getFlashChipRealSize())+"\",\"attrib\":\"disabled\"}";
+    json += "{\"type\":\"text\",\"label\":\"System Date\",\"name\":\"sys_date\",\"value\":\""+String(datetime)+"\",\"attrib\":\"disabled\"}";
     json += "]},";
     json += "{\"label\":\"Wifi AP\",\"name\":\"expand_wifiap\",\"value\":"+String(expand_wifiap)+",\"elements\":[";
     json += "{\"type\":\"text\",\"label\":\"AP MAC\",\"name\":\"ap_mac\",\"value\":\""+WiFi.softAPmacAddress()+"\",\"attrib\":\"disabled\"},";

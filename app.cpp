@@ -8,17 +8,14 @@
 uint16_t run_time = 0;
 
 // timing
-int timezone = 0;
-unsigned long epoch = 0;
+int timezone = 8;
+uint32_t epoch = 0;
 uint8_t second = 0;
 uint8_t minute = 0;
 uint8_t hour = 0;
 uint8_t day = 0;
 uint8_t month = 0;
 uint16_t year = 0;
-char datetime[32] = "";
-
-static bool action = false;
 
 void appSetup()
 {
