@@ -17,6 +17,8 @@ uint8_t day = 0;
 uint8_t month = 0;
 uint16_t year = 0;
 
+uint32_t a_energy; // watt per minute
+
 void appSetup()
 {
   ntpSetup();
@@ -45,12 +47,14 @@ void appLoop()
 {
   // static float _prev_device_voltage;
   static uint32_t msTick = millis();
+  static uint32_t total_ct_power = ct_power;
+  static uint32_t total_pv_power = pv_power;
+  static uint32_t total_dc_power = dc_power;
   // static uint8_t sTick;
 
   if (millis() - msTick >= 1000) // 1000ms refresh rate
   {
     msTick = millis();
-
     ntpLoop();
 
     if (analog_enable)
@@ -61,12 +65,17 @@ void appLoop()
     delay(1);
     if (snat_enable)
       snatLoop();
+    delay(1);
 
     if (second >= 59)
     {
+      // Convert to watt-minute
+      ct_energy = total_ct_power / 60;
+      pv_energy = total_pv_power / 60;
+      dc_energy = total_dc_power / 60;
+
       if (post_enable)
         postLoop();
-      second = 0;
 
       /*
       if (minute >= 59)
@@ -82,8 +91,20 @@ void appLoop()
       else
         minute++;
         */
+
+      // resets
+      second = 0;
+      total_ct_power = ct_power;
+      total_pv_power = pv_power;
+      total_dc_power = dc_power;
     }
     else
+    {
       second++;
+      // accumulate power every second
+      total_ct_power += ct_power;
+      total_pv_power += pv_power;
+      total_dc_power += dc_power;
+    }
   }
 }

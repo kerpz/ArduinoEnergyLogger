@@ -8,14 +8,15 @@ uint16_t modbus_error = 0;
 
 float battery_voltage;
 float battery_charge;
-float pv_voltage;
-float pv_power;
-float mppt_voltage;
-float mppt_power;
-float battery_temperature;
 float mppt_temperature;
+float battery_temperature;
+
+float pv_voltage;
+// float pv_current;
+float pv_power;
+
 float dc_voltage;
-float dc_current;
+// float dc_current;
 float dc_power;
 
 /* crc 16 */
@@ -50,9 +51,6 @@ void srneSetup()
 
 void srneLoop()
 {
-  static float avg_pv_power = 0.00;
-  static float avg_dc_power = 0.00;
-
   uint8_t transmit[8] = {0}; // rtu
   uint8_t data[25] = {0};    // buffer
   int i = 0;
@@ -103,21 +101,19 @@ void srneLoop()
     battery_voltage = word(data[5], data[6]) * 0.1;
     mppt_temperature = data[9];
     battery_temperature = data[10];
+
     dc_voltage = word(data[11], data[12]) * 0.1;
     // dc_current = word(data[13], data[14]) * 0.01;
     dc_power = word(data[15], data[16]);
-    pv_voltage = word(data[17], data[18]) * 0.1;
-    pv_power = (word(data[19], data[20]) * 0.01) * pv_voltage;
-    mppt_power = word(data[21], data[22]);
-    if (mppt_power > 0)
-      mppt_voltage = mppt_power / (word(data[7], data[8]) * 0.01);
-    // load_switch = word(data[23], data[24]);
 
-    // moving average
-    pv_power = (avg_pv_power + pv_power) / 2;
-    avg_pv_power = pv_power;
-    dc_power = (avg_dc_power + dc_power) / 2;
-    avg_dc_power = dc_power;
+    pv_voltage = word(data[17], data[18]) * 0.1;
+    // pv_current = word(data[19], data[20]) * 0.01;
+    pv_power = word(data[21], data[22]); // charging power
+
+    // mppt_power = word(data[21], data[22]);
+    // if (mppt_power > 0)
+    //   mppt_voltage = mppt_power / (word(data[7], data[8]) * 0.01);
+    //  load_switch = word(data[23], data[24]);
   }
   else
   {

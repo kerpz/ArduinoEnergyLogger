@@ -69,17 +69,17 @@ void postData(const String &data)
 void postLoop()
 {
     String csv = "&csv=";
-    csv += "" + String(a_voltage, 2); // voltage
-    csv += ",0.00";                   // current
-    csv += "," + String(a_power, 2);  // power
-    csv += ",dc";                     // type
-    csv += ",0.00";                   // temperature
-    csv += ",0.00";                   // charge
+    csv += "" + String(ct_voltage, 2); // voltage
+    csv += ",0.00";                    // current
+    csv += "," + String(ct_energy, 2); // energy
+    csv += ",dc";                      // type
+    csv += ",0.00";                    // temperature
+    csv += ",0.00";                    // charge
 
     // srne
     csv += "," + String(pv_voltage, 2); // voltage
     csv += ",0.00";                     // current
-    csv += "," + String(pv_power, 2);   // power
+    csv += "," + String(pv_energy, 2);  // energy
     csv += ",dc";                       // type
     csv += ",0.00";                     // temperature
     csv += ",0.00";                     // charge
@@ -91,16 +91,16 @@ void postLoop()
     csv += "," + String(battery_temperature, 2); // temperature
     csv += "," + String(battery_charge, 2);      // charge
 
-    csv += "," + String(mppt_voltage, 2);     // voltage
+    csv += ",0.00";                           // voltage
     csv += ",0.00";                           // current
-    csv += "," + String(mppt_power, 2);       // power
+    csv += ",0.00";                           // energy
     csv += ",dc";                             // type
     csv += "," + String(mppt_temperature, 2); // temperature
     csv += ",0.00";                           // charge
 
     csv += "," + String(dc_voltage, 2); // voltage
     csv += ",0.00";                     // current
-    csv += "," + String(dc_power, 2);   // power
+    csv += "," + String(dc_energy, 2);  // energy
     csv += ",dc";                       // type
     csv += ",0.00";                     // temperature
     csv += ",0.00";                     // charge

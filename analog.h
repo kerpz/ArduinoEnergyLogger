@@ -1,9 +1,9 @@
 #ifndef ANALOG_H
 #define ANALOG_H
 
-extern float a_voltage;
-extern float a_current;
-extern float a_power;
+extern float ct_voltage;
+extern float ct_current;
+extern float ct_power;
 
 void analogSetup();
 void analogLoop();

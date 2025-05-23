@@ -228,9 +228,9 @@ void webserverSetup()
 
     if (analog_enable) {
       json += "{\"label\":\"Analog Sensor\",\"name\":\"expand_analog\",\"value\":1,\"elements\":[";
-      json += "{\"type\":\"text\",\"label\":\"Power\",\"name\":\"a_power\",\"value\":\""+String(a_power)+"\",\"attrib\":\"disabled\"},";
-      json += "{\"type\":\"text\",\"label\":\"Current\",\"name\":\"a_current\",\"value\":\""+String(a_current)+"\",\"attrib\":\"disabled\"},";
-      json += "{\"type\":\"text\",\"label\":\"Volt\",\"name\":\"a_voltage\",\"value\":\""+String(a_voltage)+"\",\"attrib\":\"disabled\"}";
+      json += "{\"type\":\"text\",\"label\":\"CT Voltage\",\"name\":\"ct_voltage\",\"value\":\""+String(ct_voltage)+"\",\"attrib\":\"disabled\"},";
+      json += "{\"type\":\"text\",\"label\":\"CT Power\",\"name\":\"ct_power\",\"value\":\""+String(ct_power)+"\",\"attrib\":\"disabled\"},";
+      json += "{\"type\":\"text\",\"label\":\"CT Current\",\"name\":\"ct_energy\",\"value\":\""+String(ct_energy)+"\",\"attrib\":\"disabled\"}";
       json += "]},";
     }
 
@@ -241,12 +241,11 @@ void webserverSetup()
       json += "{\"type\":\"text\",\"label\":\"Batt Temperature\",\"name\":\"battery_temperature\",\"value\":\""+String(battery_temperature)+"\",\"attrib\":\"disabled\"},";
       json += "{\"type\":\"text\",\"label\":\"PV Voltage\",\"name\":\"pv_voltage\",\"value\":\""+String(pv_voltage)+"\",\"attrib\":\"disabled\"},";
       json += "{\"type\":\"text\",\"label\":\"PV Power\",\"name\":\"pv_power\",\"value\":\""+String(pv_power)+"\",\"attrib\":\"disabled\"},";
-      json += "{\"type\":\"text\",\"label\":\"MPPT Voltage\",\"name\":\"mppt_voltage\",\"value\":\""+String(mppt_voltage)+"\",\"attrib\":\"disabled\"},";
-      json += "{\"type\":\"text\",\"label\":\"MPPT Power\",\"name\":\"mppt_power\",\"value\":\""+String(mppt_power)+"\",\"attrib\":\"disabled\"},";
+      json += "{\"type\":\"text\",\"label\":\"PV Energy\",\"name\":\"pv_energy\",\"value\":\""+String(pv_energy)+"\",\"attrib\":\"disabled\"},";
       json += "{\"type\":\"text\",\"label\":\"MPPT Temperature\",\"name\":\"mppt_temperature\",\"value\":\""+String(mppt_temperature)+"\",\"attrib\":\"disabled\"},";
       json += "{\"type\":\"text\",\"label\":\"DC Voltage\",\"name\":\"dc_voltage\",\"value\":\""+String(dc_voltage)+"\",\"attrib\":\"disabled\"},";
-      json += "{\"type\":\"text\",\"label\":\"DC Current\",\"name\":\"dc_current\",\"value\":\""+String(dc_current)+"\",\"attrib\":\"disabled\"},";
-      json += "{\"type\":\"text\",\"label\":\"DC Power\",\"name\":\"dc_power\",\"value\":\""+String(dc_power)+"\",\"attrib\":\"disabled\"}";
+      json += "{\"type\":\"text\",\"label\":\"DC Power\",\"name\":\"dc_power\",\"value\":\""+String(dc_power)+"\",\"attrib\":\"disabled\"},";
+      json += "{\"type\":\"text\",\"label\":\"DC Energy\",\"name\":\"dc_energy\",\"value\":\""+String(dc_energy)+"\",\"attrib\":\"disabled\"}";
       json += "]},";
     }
 

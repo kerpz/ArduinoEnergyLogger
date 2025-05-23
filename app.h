@@ -28,6 +28,10 @@ extern uint8_t day;
 extern uint8_t month;
 extern uint16_t year;
 
+extern uint32_t ct_energy;
+extern uint32_t pv_energy;
+extern uint32_t dc_energy;
+
 void appSetup();
 void appLoop();
 

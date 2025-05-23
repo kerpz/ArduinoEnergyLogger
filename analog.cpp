@@ -19,9 +19,9 @@ double offsetI = ADC_COUNTS >> 1;
 int samples = 1480;
 int SupplyVoltage = 3200;
 
-float a_voltage = 0.0;
-float a_current = 0.0;
-float a_power = 0.0;
+float ct_voltage = 0.0;
+float ct_current = 0.0;
+float ct_power = 0.0;
 
 void analogSetup()
 {
@@ -29,7 +29,6 @@ void analogSetup()
 
 void analogLoop()
 {
-  static float avg_power = 0.00;
   // setup for volt meter reading with 1.2M resistor
   // int raw = analogRead(A0);
   // a_voltage = raw / 1023.0;
@@ -47,12 +46,8 @@ void analogLoop()
   }
   double I_RATIO = ct_calibration * ((SupplyVoltage / 1000.0) / (ADC_COUNTS));
 
-  a_voltage = ct_voltage;
-  a_current = I_RATIO * sqrt(sumI / samples);
+  ct_voltage = ct_voltage;
+  ct_current = I_RATIO * sqrt(sumI / samples);
 
-  a_power = (a_current * a_voltage * ct_pf); // watts / power apparent
-
-  // moving average
-  a_power = (avg_power + a_power) / 2;
-  avg_power = a_power;
+  ct_power = (ct_current * ct_voltage * ct_pf); // watt(s) / power apparent
 }
