@@ -17,9 +17,9 @@ uint8_t day = 0;
 uint8_t month = 0;
 uint16_t year = 0;
 
-uint32_t ct_energy; // watt per minute
-uint32_t pv_energy; // watt per minute
-uint32_t dc_energy; // watt per minute
+float ct_energy; // watt per minute
+float pv_energy; // watt per minute
+float dc_energy; // watt per minute
 
 void appSetup()
 {
@@ -72,9 +72,9 @@ void appLoop()
     if (second >= 59)
     {
       // Convert to watt-minute
-      ct_energy = total_ct_power / 60;
-      pv_energy = total_pv_power / 60;
-      dc_energy = total_dc_power / 60;
+      ct_energy = total_ct_power / 60.0;
+      pv_energy = total_pv_power / 60.0;
+      dc_energy = total_dc_power / 60.0;
 
       if (post_enable)
         postLoop();

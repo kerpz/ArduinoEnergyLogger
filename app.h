@@ -28,9 +28,9 @@ extern uint8_t day;
 extern uint8_t month;
 extern uint16_t year;
 
-extern uint32_t ct_energy;
-extern uint32_t pv_energy;
-extern uint32_t dc_energy;
+extern float ct_energy;
+extern float pv_energy;
+extern float dc_energy;
 
 void appSetup();
 void appLoop();
