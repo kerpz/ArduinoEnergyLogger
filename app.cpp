@@ -77,7 +77,70 @@ void appLoop()
       dc_energy = total_dc_power / 60.0;
 
       if (post_enable)
-        postLoop();
+      {
+        String csv = "&csv=";
+        // ct / consumption
+        csv += "" + String(ct_voltage, 2); // voltage
+        csv += ",0.00";                    // current
+        csv += "," + String(ct_energy, 2); // energy W/m
+        csv += ",dc";                      // type
+        csv += ",0.00";                    // temperature
+        csv += ",0.00";                    // charge
+
+        // srne / harvest
+        csv += "," + String(pv_voltage, 2); // voltage
+        csv += ",0.00";                     // current
+        csv += "," + String(pv_energy, 2);  // energy W/m
+        csv += ",dc";                       // type
+        csv += ",0.00";                     // temperature
+        csv += ",0.00";                     // charge
+
+        // srne / battery
+        csv += "," + String(battery_voltage, 2);     // voltage
+        csv += ",0.00";                              // current
+        csv += ",0.00";                              // energy W/m
+        csv += ",dc";                                // type
+        csv += "," + String(battery_temperature, 2); // temperature
+        csv += "," + String(battery_charge, 2);      // charge
+
+        // srne / controller
+        csv += ",0.00";                           // voltage
+        csv += ",0.00";                           // current
+        csv += ",0.00";                           // energy W/m
+        csv += ",dc";                             // type
+        csv += "," + String(mppt_temperature, 2); // temperature
+        csv += ",0.00";                           // charge
+
+        // srne / dc consumption
+        csv += "," + String(dc_voltage, 2); // voltage
+        csv += ",0.00";                     // current
+        csv += "," + String(dc_energy, 2);  // energy W/m
+        csv += ",dc";                       // type
+        csv += ",0.00";                     // temperature
+        csv += ",0.00";                     // charge
+
+        // snat / input
+        csv += "," + String(inv_in_voltage, 2);   // input voltage
+        csv += ",0.00";                           // input current
+        csv += ",0.00";                           // input energy W/m
+        csv += ",ac";                             // type
+        csv += ",0.00";                           // input temperature
+        csv += "," + String(inv_in_frequency, 2); // input frequency
+
+        // snat / output
+        csv += "," + String(inv_out_voltage, 2); // output voltage
+        csv += ",0.00";                          // output current
+        csv += "," + String(inv_out_power, 2);   // output energy W/m
+        csv += ",ac";                            // type
+        csv += "," + String(inv_temperature, 2); // output temperature
+        csv += ",0.00";                          // output frequency
+
+        csv += "," + String(inv_cell_voltage, 2);     // cell voltage
+        csv += "," + String(inv_in_fault_voltage, 2); // in fault voltage
+        csv += "," + String(inv_flags);               // flags
+
+        postData(csv);
+      }
 
       /*
       if (minute >= 59)

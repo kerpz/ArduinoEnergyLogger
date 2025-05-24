@@ -13,9 +13,6 @@
 #define APPNAME "EnergyLogger v1.0"
 #define APPCODE "ess"
 
-#define APssid "EnergyLogger-AP"
-#define APpassword "12345678"
-
 extern uint16_t run_time;
 
 // timing

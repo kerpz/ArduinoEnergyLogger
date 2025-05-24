@@ -67,7 +67,7 @@ void webserverSetup()
     json += "{\"label\":\"Wifi AP\",\"name\":\"expand_wifiap\",\"value\":"+String(expand_wifiap)+",\"elements\":[";
     json += "{\"type\":\"text\",\"label\":\"AP MAC\",\"name\":\"ap_mac\",\"value\":\""+WiFi.softAPmacAddress()+"\",\"attrib\":\"disabled\"},";
     json += "{\"type\":\"text\",\"label\":\"AP Address\",\"name\":\"ap_address\",\"value\":\""+WiFi.softAPIP().toString()+"\",\"attrib\":\"disabled\"},";
-    json += "{\"type\":\"text\",\"label\":\"AP SSID\",\"name\":\"ap_ssid\",\"value\":\""+String(APssid)+"\",\"attrib\":\"disabled\"},";
+    json += "{\"type\":\"text\",\"label\":\"AP SSID\",\"name\":\"ap_ssid\",\"value\":\""+String(ap_ssid)+"\",\"attrib\":\"disabled\"},";
     json += "{\"type\":\"text\",\"label\":\"Connected Devices\",\"name\":\"connected_devices\",\"value\":\""+String(WiFi.softAPgetStationNum())+"\",\"attrib\":\"disabled\"}";
     json += "]},";
     json += "{\"label\":\"Wifi Station\",\"name\":\"expand_wifista\",\"value\":"+String(expand_wifista)+",\"elements\":[";
