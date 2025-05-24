@@ -133,7 +133,7 @@ void webserverSetup()
       if (doc["api_url"]) strcpy(api_url, (const char*)doc["api_url"]);
       if (doc["api_key"]) strcpy(api_key, (const char*)doc["api_key"]);
 
-      //if (doc["ct_enable"]) ct_enable = doc["ct_enable"];
+      if (doc["ct_enable"]) ct_enable = doc["ct_enable"];
       if (doc["ct_calibration"]) ct_enable = doc["ct_calibration"];
       if (doc["ct_voltage"]) ct_voltage = doc["ct_voltage"];
       if (doc["ct_pf"]) ct_pf = doc["ct_pf"];
@@ -183,24 +183,24 @@ void webserverSetup()
     json += "]},";
 
     json += "{\"label\":\"Post\",\"name\":\"expand_post\",\"value\":1,\"elements\":[";
-    json += "{\"type\":\"select\",\"label\":\"Post\",\"name\":\"post_enable\",\"value\":\"" + String(post_enable) + "\",\"options\":[[\"0\",\"Disabled\"],[\"1\",\"Enabled\"]]},";
+    json += "{\"type\":\"select\",\"label\":\"Post Enable\",\"name\":\"post_enable\",\"value\":\"" + String(post_enable) + "\",\"options\":[[\"0\",\"Disabled\"],[\"1\",\"Enabled\"]]},";
     json += "{\"type\":\"text\",\"label\":\"API url\",\"name\":\"api_url\",\"value\":\"" + String(api_url) + "\"},";
     json += "{\"type\":\"text\",\"label\":\"API key\",\"name\":\"api_key\",\"value\":\"" + String(api_key) + "\"}";
     json += "]},";
 
     json += "{\"label\":\"Analog\",\"name\":\"expand_analog\",\"value\":1,\"elements\":[";
-    //json += "{\"type\":\"select\",\"label\":\"CT Enable\",\"name\":\"ct_enable\",\"value\":\"" + String(ct_enable) + "\",\"options\":[[\"0\",\"Disabled\"],[\"1\",\"Enabled\"]]},";
-    json += "{\"type\":\"text\",\"label\":\"CT Calibration\",\"name\":\"ct_calibration\",\"value\":\"" + String(ct_calibration) + "\"},";
+    json += "{\"type\":\"select\",\"label\":\"CT Enable\",\"name\":\"ct_enable\",\"value\":\"" + String(ct_enable) + "\",\"options\":[[\"0\",\"Disabled\"],[\"1\",\"Enabled\"]]},";
     json += "{\"type\":\"text\",\"label\":\"CT Voltage\",\"name\":\"ct_voltage\",\"value\":\"" + String(ct_voltage) + "\"},";
+    json += "{\"type\":\"text\",\"label\":\"CT Calibration\",\"name\":\"ct_calibration\",\"value\":\"" + String(ct_calibration) + "\"},";
     json += "{\"type\":\"text\",\"label\":\"CT Pf\",\"name\":\"ct_pf\",\"value\":\"" + String(ct_pf) + "\"}";
     json += "]},";
 
     json += "{\"label\":\"SRNE\",\"name\":\"expand_component\",\"value\":1,\"elements\":[";
-    json += "{\"type\":\"select\",\"label\":\"SRNE\",\"name\":\"srne_enable\",\"value\":\"" + String(srne_enable) + "\",\"options\":[[\"0\",\"Disabled\"],[\"1\",\"Enabled\"]]}";
+    json += "{\"type\":\"select\",\"label\":\"SRNE Enable\",\"name\":\"srne_enable\",\"value\":\"" + String(srne_enable) + "\",\"options\":[[\"0\",\"Disabled\"],[\"1\",\"Enabled\"]]}";
     json += "]},";
 
     json += "{\"label\":\"SNAT\",\"name\":\"expand_component\",\"value\":1,\"elements\":[";
-    json += "{\"type\":\"select\",\"label\":\"SNAT\",\"name\":\"snat_enable\",\"value\":\"" + String(snat_enable) + "\",\"options\":[[\"0\",\"Disabled\"],[\"1\",\"Enabled\"]]}";
+    json += "{\"type\":\"select\",\"label\":\"SNAT Enable\",\"name\":\"snat_enable\",\"value\":\"" + String(snat_enable) + "\",\"options\":[[\"0\",\"Disabled\"],[\"1\",\"Enabled\"]]}";
     json += "]},";
 
     json += "{\"label\":\"Page\",\"name\":\"expand_page\",\"value\":1,\"elements\":[";
