@@ -69,6 +69,7 @@ void postData(const String &data)
 void postLoop()
 {
     String csv = "&csv=";
+    // ct / consumption
     csv += "" + String(ct_voltage, 2); // voltage
     csv += ",0.00";                    // current
     csv += "," + String(ct_energy, 2); // energy W/m
@@ -76,7 +77,7 @@ void postLoop()
     csv += ",0.00";                    // temperature
     csv += ",0.00";                    // charge
 
-    // srne
+    // srne / harvest
     csv += "," + String(pv_voltage, 2); // voltage
     csv += ",0.00";                     // current
     csv += "," + String(pv_energy, 2);  // energy W/m
@@ -84,13 +85,15 @@ void postLoop()
     csv += ",0.00";                     // temperature
     csv += ",0.00";                     // charge
 
+    // srne / battery
     csv += "," + String(battery_voltage, 2);     // voltage
     csv += ",0.00";                              // current
-    csv += ",0.00";                              // power
+    csv += ",0.00";                              // energy W/m
     csv += ",dc";                                // type
     csv += "," + String(battery_temperature, 2); // temperature
     csv += "," + String(battery_charge, 2);      // charge
 
+    // srne / controller
     csv += ",0.00";                           // voltage
     csv += ",0.00";                           // current
     csv += ",0.00";                           // energy W/m
@@ -98,6 +101,7 @@ void postLoop()
     csv += "," + String(mppt_temperature, 2); // temperature
     csv += ",0.00";                           // charge
 
+    // srne / dc consumption
     csv += "," + String(dc_voltage, 2); // voltage
     csv += ",0.00";                     // current
     csv += "," + String(dc_energy, 2);  // energy W/m
@@ -105,7 +109,7 @@ void postLoop()
     csv += ",0.00";                     // temperature
     csv += ",0.00";                     // charge
 
-    // snat
+    // snat / input
     csv += "," + String(inv_in_voltage, 2);   // input voltage
     csv += ",0.00";                           // input current
     csv += ",0.00";                           // input energy W/m
@@ -113,6 +117,7 @@ void postLoop()
     csv += ",0.00";                           // input temperature
     csv += "," + String(inv_in_frequency, 2); // input frequency
 
+    // snat / output
     csv += "," + String(inv_out_voltage, 2); // output voltage
     csv += ",0.00";                          // output current
     csv += "," + String(inv_out_power, 2);   // output energy W/m
