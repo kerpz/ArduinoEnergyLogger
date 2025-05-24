@@ -1,8 +1,11 @@
 #ifndef EEPROM_H
 #define EEPROM_H
 
-extern char ssid[32];
-extern char password[32];
+extern char ap_ssid[32];
+extern char ap_key[16];
+extern uint8_t sta_enable;
+extern char sta_ssid[32];
+extern char sta_key[16];
 
 // peripheral devices
 extern uint8_t beep_enable;
@@ -11,8 +14,8 @@ extern uint8_t display_enable;
 extern uint8_t ads1115_enable;
 
 extern uint8_t post_enable;
-extern char api_key[32];
 extern char api_url[256];
+extern char api_key[32];
 extern uint16_t http_timeout;
 
 // emon

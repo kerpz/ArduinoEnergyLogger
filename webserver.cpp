@@ -118,8 +118,12 @@ void webserverSetup()
       DynamicJsonDocument doc(1024);
       deserializeJson(doc, webServer.arg("plain").c_str());
 
-      if (doc["ssid"]) strcpy(ssid, (const char*)doc["ssid"]);
-      if (doc["password"]) strcpy(password, (const char*)doc["password"]);
+      if (doc["ap_ssid"]) strcpy(ap_ssid, (const char*)doc["ap_ssid"]);
+      if (doc["ap_key"]) strcpy(ap_key, (const char*)doc["ap_key"]);
+
+      if (doc["sta_enable"]) sta_enable = doc["sta_enable"];
+      if (doc["sta_ssid"]) strcpy(sta_ssid, (const char*)doc["sta_ssid"]);
+      if (doc["sta_key"]) strcpy(sta_key, (const char*)doc["sta_key"]);
 
       if (doc["beep_enable"]) beep_enable = doc["beep_enable"];
       if (doc["analog_enable"]) analog_enable = doc["analog_enable"];
@@ -146,8 +150,15 @@ void webserverSetup()
     int n = WiFi.scanNetworks();
 
     json += "[";
-    json += "{\"label\":\"Wifi Connect\",\"name\":\"expand_wifi\",\"value\":1,\"elements\":[";
-    json += "{\"type\":\"select\",\"label\":\"SSID\",\"name\":\"ssid\",\"value\":\"" + WiFi.SSID() + "\",\"options\":[";
+    json += "{\"label\":\"Wifi AP\",\"name\":\"expand_wifiap\",\"value\":1,\"elements\":[";
+    json += "{\"type\":\"text\",\"label\":\"AP SSID\",\"name\":\"ap_ssid\",\"value\":\"" + String(ap_ssid) + "\"},";
+    json += "{\"type\":\"text\",\"label\":\"AP Key\",\"name\":\"ap_key\",\"value\":\"" + String(ap_key) + "\"}";
+    json += "]},";
+
+    //if (sta_enable) {
+    json += "{\"label\":\"Wifi Sta\",\"name\":\"expand_wifista\",\"value\":1,\"elements\":[";
+    json += "{\"type\":\"select\",\"label\":\"Wifi Sta\",\"name\":\"sta_enable\",\"value\":\"" + String(sta_enable) + "\",\"options\":[[\"0\",\"Disabled\"],[\"1\",\"Enabled\"]]},";
+    json += "{\"type\":\"select\",\"label\":\"Sta SSID\",\"name\":\"ssid\",\"value\":\"" + WiFi.SSID() + "\",\"options\":[";
     if (n > 0) {
       for (int i = 0; i < n; i++) {
         json += sep+"[\""+WiFi.SSID(i)+"\",\""+WiFi.SSID(i)+" "+String(getRSSIasQuality(WiFi.RSSI(i)))+"%";
@@ -161,7 +172,7 @@ void webserverSetup()
       json += "[\"\",\"\"]";
     }
     json += "]},";
-    json += "{\"type\":\"text\",\"label\":\"Password\",\"name\":\"password\",\"value\":\"" + String(password) + "\"}";
+    json += "{\"type\":\"text\",\"label\":\"Sta Key\",\"name\":\"sta_key\",\"value\":\"" + String(sta_key) + "\"}";
     json += "]},";
 
     json += "{\"label\":\"Components\",\"name\":\"expand_component\",\"value\":1,\"elements\":[";
