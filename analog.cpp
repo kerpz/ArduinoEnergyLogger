@@ -19,7 +19,7 @@ double offsetI = ADC_COUNTS >> 1;
 int samples = 1480;
 int SupplyVoltage = 3200;
 
-float ct_voltage = 0.0;
+// float ct_voltage = 0.0;
 float ct_current = 0.0;
 float ct_power = 0.0;
 

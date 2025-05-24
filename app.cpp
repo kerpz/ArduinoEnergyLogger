@@ -17,7 +17,9 @@ uint8_t day = 0;
 uint8_t month = 0;
 uint16_t year = 0;
 
-uint32_t a_energy; // watt per minute
+uint32_t ct_energy; // watt per minute
+uint32_t pv_energy; // watt per minute
+uint32_t dc_energy; // watt per minute
 
 void appSetup()
 {
