@@ -68,8 +68,14 @@ Screenshots (Device Webserver)
 
 NOTES
 -----
-* Still in beta test
+* Working Prototype
 
-TODO
+Related Wemos D1 mini ESP8266 Projects (Arduino)
 -----
-* Device mass production
+* [Satellite Tracker](https://github.com/kerpz/ArduinoSatelliteTracker)
+* [Energy Logger](https://github.com/kerpz/ArduinoEnergyLogger)
+* [Car Security](https://github.com/kerpz/ArduinoCarSecurity)
+
+Related Wemos D1 mini ESP32 Projects (Samsung SmartThings)
+-----
+* Car Securty
